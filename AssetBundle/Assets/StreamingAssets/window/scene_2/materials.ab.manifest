@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1803132086
+CRC: 2831645755
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5f0755447826f0ca2da9fe0a09bbc1d7
+    Hash: c968384b41cd099e3f15557fcbd60419
   TypeTreeHash:
     serializedVersion: 2
     Hash: fe397485c3cec1106b49e9ff95e8f8a2
@@ -16,6 +16,6 @@ ClassTypes:
 - Class: 48
   Script: {instanceID: 0}
 Assets:
-- Assets/AB_Res/Scene_1/Materials/Floor.mat
+- Assets/AB_Res/Scene_2/Materials/Floor.mat
 Dependencies:
 - D:/github/unity/AssetBundleFramework/AssetBundle/Assets/StreamingAssets/window/scene_1/textures.ab

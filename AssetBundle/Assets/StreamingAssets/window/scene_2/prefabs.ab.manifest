@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4146611561
+CRC: 146679203
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 37e4c00fa26e5ee8255887cf2aa6f77d
+    Hash: b32d291123d4a465ec451e26cbac8243
   TypeTreeHash:
     serializedVersion: 2
     Hash: d91ff1430d901c313f8a367538ad4b14
@@ -30,8 +30,8 @@ ClassTypes:
 - Class: 135
   Script: {instanceID: 0}
 Assets:
-- Assets/AB_Res/Scene_1/Prefabs/Sphere.prefab
-- Assets/AB_Res/Scene_1/Prefabs/Plane.prefab
-- Assets/AB_Res/Scene_1/Prefabs/Cube.prefab
+- Assets/AB_Res/Scene_2/Prefabs/Plane.prefab
+- Assets/AB_Res/Scene_2/Prefabs/Cube.prefab
+- Assets/AB_Res/Scene_2/Prefabs/Sphere.prefab
 Dependencies:
 - D:/github/unity/AssetBundleFramework/AssetBundle/Assets/StreamingAssets/window/scene_1/materials.ab
