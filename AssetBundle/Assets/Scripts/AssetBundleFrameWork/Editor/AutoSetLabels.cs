@@ -43,7 +43,6 @@ public class AutoSetLabels
             //2.1：遍历本场景目录下所有的目录或者文件
             //     如果是目录，则继续“递归”访问里面的文件，直到定位到文件
             string tempScenesDir = strNeedSetLabelBoot + "/" + curDir.Name;
-            DirectoryInfo tempScenesDirInfo = new DirectoryInfo(tempScenesDir);
             int tempIndex = tempScenesDir.LastIndexOf("/");
             string tempScenesName = tempScenesDir.Substring(tempIndex + 1);
 
@@ -54,6 +53,8 @@ public class AutoSetLabels
 
         //刷新
         AssetDatabase.Refresh();
+
+        Debug.Log("本次Set AB Label操作完成");
     }
 
     /// <summary>
@@ -79,7 +80,7 @@ public class AutoSetLabels
             if (fileinfoObj != null)
             {
                 //修改此文件的AssetBundle标签
-
+                SetFileABLabel(fileinfoObj, tempScenesName);
             }
             //目录类型
             else
@@ -126,10 +127,40 @@ public class AutoSetLabels
         }
     }
 
+    /// <summary>
+    /// 获取AB包名称
+    /// AB包命名规则，
+    ///     按场景划分，AB_Res下有CommonScene,Scene_1,Scene_2....
+    ///     Scene目录下有material,texture,prefab,文件夹，还有scene文件,
+    ///     material等目录不管有几个层级 命名规则，Scene_1/material,Scene文件Scene_1/Scene_1
+    /// </summary>
+    /// <param name="fileinfoObj"></param>
+    /// <param name="sceneName"></param>
+    /// <returns></returns>
     private static string GetABName(FileInfo fileinfoObj, string sceneName)
     {
         string strABName = string.Empty;
 
+        string tempWinPath = fileinfoObj.FullName;
+
+        string tempUnityPath = tempWinPath.Replace("\\", "/");
+
+        int tempSceneNamePosition = tempUnityPath.IndexOf(sceneName) + sceneName.Length;
+
+        string strABFileNameArea = tempUnityPath.Substring(tempSceneNamePosition + 1);
+
+        if (strABFileNameArea.Contains("/"))
+        {
+            string[] tempStrArray = strABFileNameArea.Split('/');
+            //AB包正式形成
+            strABName = sceneName + "/" + tempStrArray[0];
+        }
+        else
+        {
+            strABName = sceneName + "/" + sceneName;
+        }
+
+        return strABName;
         
     }
 }
