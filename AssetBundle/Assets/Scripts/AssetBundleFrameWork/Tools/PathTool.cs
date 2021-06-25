@@ -16,11 +16,31 @@ public class PathTool
 #else
         path.Append(Application.streamingAssetsPath);
                 path.Append("/");
-                path.Append("window/");
 #endif
 
         return path.ToString();
     }
+
+    public static string GetPlatform()
+    {
+        string strReturn = string.Empty;
+        switch (Application.platform)
+        {
+            case RuntimePlatform.WindowsPlayer:
+            case RuntimePlatform.WindowsEditor:
+                strReturn = "window";
+                //strReturnWWWPath = GetPath();
+                break;
+            case RuntimePlatform.Android:
+                strReturn = "android";
+                break;
+            default:
+                break;
+        }
+
+        return strReturn;
+    }
+
     /// <summary>
     /// 更新资源存放在Application.persistentDataPath+"/Resources/"目录下
     /// </summary>
@@ -93,11 +113,11 @@ public class PathTool
         {
             case RuntimePlatform.WindowsPlayer:
             case RuntimePlatform.WindowsEditor:
-                strReturnWWWPath = "file://" + GetPath();
+                strReturnWWWPath = "file://" + GetPath() + "/" + GetPlatform();
                 //strReturnWWWPath = GetPath();
                 break;
             case RuntimePlatform.Android:
-                strReturnWWWPath = "jar:file://" + GetPath();
+                strReturnWWWPath = "jar:file://" + GetPath() + "/" + GetPlatform();
                 break;
             default:
                 break;

@@ -21,7 +21,7 @@ public class SingleABLoader : System.IDisposable
     public SingleABLoader(string abName,LoadCompeleteHandle loadCompelete)
     {
         m_abName = abName;
-        m_abDownLoadPath = PathTool.GetWWWPath() + abName;
+        m_abDownLoadPath = PathTool.GetWWWPath() + "/" +abName;
         //m_abDownLoadPath = m_abDownLoadPath.Replace("/", "\\");
         m_loadCompeleteHandle = loadCompelete;
     }

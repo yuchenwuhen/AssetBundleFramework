@@ -32,7 +32,7 @@ namespace ABFW
             string strABOutPathDIR = string.Empty;
 
             //获取"StreamingAssets"数值
-            strABOutPathDIR = PathTool.GetPath();
+            strABOutPathDIR = PathTool.GetWWWPath();
 
         //判断生成输出目录文件夹
             if (!Directory.Exists(strABOutPathDIR))
