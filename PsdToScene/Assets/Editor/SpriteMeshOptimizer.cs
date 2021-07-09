@@ -50,7 +50,7 @@ namespace SpriteMesher
                     mesh.triangles = spriteItem.triangles.toIntArray();
 
                     //Generate Mesh
-                    AutoWeld(mesh, 500f, 500f);
+                    AutoWeld(mesh, 2000f, 2000f);
 
                     List<Vector2> item =new List<Vector2>();
                     for (int i = 0; i < mesh.vertices.Length; i++)
