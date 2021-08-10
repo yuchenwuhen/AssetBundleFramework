@@ -126,6 +126,7 @@ namespace SpriteMesher
                             continue;
                         }
                         var pathCount = paths.Length;
+                        List<Vector2> Item = new List<Vector2>();
                         Debug.LogFormat("{0} path(s) found.", pathCount);
                         for (var j = 0; j < pathCount; j++)
                         {
@@ -141,8 +142,26 @@ namespace SpriteMesher
                                 var p = path[k];
                                 path[k].x = Mathf.Clamp(p.x / rectScaleX, -halfExtents.x, halfExtents.x);
                                 path[k].y = Mathf.Clamp(p.y / rectScaleY, -halfExtents.y, halfExtents.y);
+
+                                Item.Add(path[k]);
                             }
                         }
+
+                        //IList<Vector2> hull = ConvexHull.ComputeConvexHull(Item, true);
+
+                        //Vector2[] hullItem = new Vector2[hull.Count];
+                        //int index = 0;
+                        //foreach (var hull1 in hull)
+                        //{
+                        //    hullItem[index] = new Vector2(hull1.x, hull1.y);
+                        //    index++;
+                        //}
+
+                        //spriteItem.OverridePhysicsShape(new List<Vector2[]> {
+                        //   hullItem,
+                        //});
+
+
                         var spriteId = sprite.GetSpriteID();
                         outlineDataProvider.SetOutlines(spriteId, paths.ToList());
                         outlineDataProvider.SetTessellationDetail(spriteId, OutlineTolerance);
